@@ -1,17 +1,20 @@
-import pygame, sys
+import pygame
+import sys
 
 from player import Player
 
+
 class Game:
     def __init__(self):
-        player_sprite = Player((300,300))
+        player_sprite = Player((screen_width/2, screen_height))
         self.player = pygame.sprite.GroupSingle(player_sprite)
 
-    def run(self): 
+    def run(self):
+        self.player.update()
         self.player.draw(screen)
     # update all sprite groups
     # draw all sprite groups
-    
+
 
 if __name__ == '__main__':
     pygame.init()
