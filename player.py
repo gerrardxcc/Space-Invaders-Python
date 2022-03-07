@@ -1,5 +1,4 @@
-from typing_extensions import Self
-import pygame,os
+import pygame
 
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos):
@@ -12,9 +11,9 @@ class Player(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_RIGHT]:
-            self.react.x += self.speed
+            self.rect.x += self.speed
         elif keys[pygame.K_LEFT]:
-            self.react.x -= self.speed
+            self.rect.x -= self.speed
 
     def update(self):
         self.get_input()
