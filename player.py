@@ -1,10 +1,12 @@
 import pygame
 
+
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,constraint,speed):
+    def __init__(self, pos, constraint, speed):
         super().__init__()
-        self.image = pygame.image.load('/Users/gerrardxcc/Desktop/AppDev/Space-Invaders/images/player.png').convert_alpha()
-        self.rect = self.image.get_rect(midbottom = pos)
+        self.image = pygame.image.load(
+            '/Users/gerrardxcc/Desktop/AppDev/Space-Invaders/images/player.png').convert_alpha()
+        self.rect = self.image.get_rect(midbottom=pos)
         self.speed = speed
         self.max_x_constraint = constraint
 
@@ -17,8 +19,8 @@ class Player(pygame.sprite.Sprite):
             self.rect.x -= self.speed
 
     def constraint(self):
-        if self.reac.left <=0:
-            self.rect.left =0
+        if self.rect.left <= 0:
+            self.rect.left = 0
         if self.rect.right >= self.max_x_constraint:
             self.rect.right = self.max_x_constraint
 
