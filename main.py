@@ -55,6 +55,8 @@ class Game:
         for alien in all_aliens:
             if alien.rect.right >= screen_width:
                 self.alien_direction = -1
+            elif alien.rect.left <= 0:
+                self.alien_direction = 1
 
     def run(self):
         self.player.update()
