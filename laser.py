@@ -9,4 +9,4 @@ class Laser(pygame.sprite.Sprite):
         self.speed = speed
 
     def update(self):
-        self.rect.y -= self.speed 
+        self.rect.y += self.speed 
