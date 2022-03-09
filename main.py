@@ -112,7 +112,7 @@ class Game:
                 if aliens_hit:
                     for alien in aliens_hit:
                         self.score += alien.value
-                    laser.kill()
+                    # laser.kill()
                     self.explosion_sound.play()
 
                 # extra collision
@@ -154,6 +154,12 @@ class Game:
         score_rect = score_surf.get_rect(topleft = (10,-10))
         screen.blit(score_surf,score_rect)
 
+    def victory_message(self):
+        if not self.aliens.sprites():
+            victory_surf = self.font.render('You won', False, 'white')
+            victory_rect = victory_surf.get_rect(center = (screen_width / 2, screen_height / 2 ))
+            screen.blit(victory_surf,victory_rect)
+
     def run(self):
         self.player.update()
         self.alien_lasers.update()
@@ -172,6 +178,7 @@ class Game:
         self.extra.draw(screen)
         self.display_lives()
         self.display_score()
+        self.victory_message()
 
 class CRT:
     def __init__(self):
