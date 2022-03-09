@@ -94,6 +94,10 @@ class Game:
                 if pygame.sprite.spritecollide(laser,self.aliens,True):
                     laser.kill()
 
+                # extra collision
+                if pygame.sprite.spritecollide(laser,self.extra,True):
+                    laser.kill()
+
     def run(self):
         self.player.update()
         self.aliens.update(self.alien_direction)
