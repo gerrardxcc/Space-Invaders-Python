@@ -82,6 +82,18 @@ class Game:
             self.extra.add(Extra(choice(['right', 'left']), screen_width))
             self.extra_spawn_time = randint(400, 800)
 
+    def collison_checks(self):
+        # player lasers
+        if self.player.sprite.lasers:
+            for laser in self.player.sprite.lasers:
+                # obstacle collisions
+                if pygame.sprite.spritecollide(laser,self.blocks,True):
+                    laser.kill()
+
+                # alien collisions
+                if pygame.sprite.spritecollide(laser,self.aliens,True):
+                    laser.kill()
+
     def run(self):
         self.player.update()
         self.aliens.update(self.alien_direction)
@@ -89,6 +101,7 @@ class Game:
         self.alien_lasers.update()
         self.extra_alien_timer()
         self.extra.update()
+        self.collison_checks()
 
 
         self.player.sprite.lasers.draw(screen)
